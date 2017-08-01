@@ -1,0 +1,37 @@
+.calendar-wrapper{
+	width:100%;
+}
+
+.calendar-grid-container{
+    max-width: 100%;
+  /*   display: flex; */
+}
+
+.today-date-container{
+	max-width: 100%;
+ 	display: flex; 
+}
+
+.today-date{
+	margin:0px auto;
+
+}
+
+.row{
+	/*display: flex;*/
+	/*display:inline-block;*/ 
+    margin: 0px auto;
+}
+
+.col{
+	width:110px;
+	height:100px;
+	/* margin:auto; */
+	border:1px solid gray;
+	/* display:flex; */
+	display: inline-block;
+}
+
+.item{
+	margin:auto;
+}
