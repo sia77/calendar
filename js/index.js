@@ -66,8 +66,8 @@ var numberOfDaysInMonth = function(year, month){
 
 ;
 (function(){
-	 generateFirstRow();
-	 generateCalendar(t.getFullYear(), t.getMonth(), 2);
+	generateFirstRow();
+	generateCalendar(t.getFullYear(), t.getMonth(), 2 );
 
 })();
 
