@@ -1,3 +1,9 @@
+* {
+	font-family: 'Montserrat', sans-serif;
+}
+#top-spacer{
+	height: 20px;
+}
 .calendar-wrapper{
 	width:100%;
 }
@@ -10,6 +16,17 @@
 .today-date-container{
 	max-width: 100%;
  	display: flex; 
+ 	margin:20px 0;
+}
+
+.user-picked-date-container{
+	max-width: 20%;
+ 	display: flex; 
+ 	margin:20px auto;
+}
+
+#user-picked-date{
+	margin:0px auto;
 }
 
 .today-date{
@@ -33,5 +50,15 @@
 }
 
 .item{
-	margin:auto;
+	margin: 5px 0 0 5px;
 }
+
+#weekdayname-row * .item{
+	font-family: 'Arimo', sans-serif !important;	
+	font-weight: 700;
+}
+
+.date-nav{
+	cursor: pointer;
+}
+

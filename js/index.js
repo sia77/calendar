@@ -149,7 +149,7 @@ var getFirstDayOfMonth = function(year, month){
 (function(){
 	var d_obj = new Date();
 	todaySDate(d_obj);
-
+	userPickedDate(d_obj);
 	generateFirstRow();
 	generateAllDayCells();
 

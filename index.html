@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang='en'>
 	<head>
-		<link rel="stylesheet" type="text/css" href="css/main.css" />
-<!-- 		<script
-	  src="http://code.jquery.com/jquery-3.2.1.min.js"
-	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-	  crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-		
+		<link href="https://fonts.googleapis.com/css?family=Arimo:400,700|Montserrat|Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/main.css" />		
 	</head>
 	<body>
+		<div id="top-spacer">
+		</div>
 		<div class='calendar-wrapper'>
-			<div class="today-date-container">
+			<div class="today-date-container" id="today-date-container">
 				<div id='today-date' class="today-date"></div>
 			</div>
-			<div>
-				<div id='prev'>prev</div><div id="user-picked-date"></div><div id='next'>next</div>
+			<div class="user-picked-date-container">
+				<div id='prev' class="material-icons date-nav">chevron_left</div>
+				<div id="user-picked-date"></div>
+				<div id='next' class="material-icons date-nav">chevron_right</div>
 			</div>
 			<div class="container calendar-grid-container"  id="calendar-grid">
 
