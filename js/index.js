@@ -45,18 +45,18 @@ var generateFirstRow = function(){
 	var weekDaysname_row = document.getElementById('weekdayname-row');
 
 	weekDaysName.forEach(function(item, index){
-		 weekDaysname_row.innerHTML += '<div class="col" ><div class="item">'+ item + '</div></div>';
+		 weekDaysname_row.innerHTML += '<div class="col weekday-name" ><div class="item">'+ item + '</div></div>';
 	});
 }
 
 
 
 var addDatesToCalendar = function(d_obj){
-	console.log("Full year: ", d_obj);
+
 	var year = d_obj.getFullYear(), 
 		month = d_obj.getMonth(),
 		startDay = getFirstDayOfMonth(year, month);
-		console.log('hell: ', year);
+
 	var lastDayOfMonth = numberOfDaysInMonth(year, month);
 	var lastDayOfLastMonth = numberOfDaysInMonth(year, month-1);
 	
@@ -76,6 +76,8 @@ var addDatesToCalendar = function(d_obj){
 
 	for(i=startDay; i<lastDayOfMonth+startDay; i++){
 		document.getElementById('cell_'+i).innerHTML = i-startDay+1;
+
+		document.getElementById('cell_'+i).classList.add("today");
 	}
 
 	// for(k=9; k<; k++){
@@ -85,8 +87,12 @@ var addDatesToCalendar = function(d_obj){
 
 }
 
+var litUpToday = function(){
+
+}
+
 var numberOfDaysInMonth = function(year, month){
-	return new Date(year, month, 0).getDate();
+	return new Date(year, month+1, 0).getDate();
 }
 
 function generateAllDayCells(){
@@ -110,7 +116,7 @@ var move_forward = function(d_obj){
 	next.addEventListener('click', function(){
 		var m = d_obj.getMonth()
 		d_obj.setMonth(m+1);
-		console.log("n-Date: ", d_obj);
+		//console.log("n-Date: ", d_obj);
 		addDatesToCalendar(d_obj);
 		userPickedDate(d_obj);
 	});
@@ -121,7 +127,7 @@ var move_backward = function(d_obj){
 	prev.addEventListener('click', function(){
 		var m = d_obj.getMonth();
 		d_obj.setMonth(m-1);
-		console.log("p-Date: ", d_obj);
+		//console.log("p-Date: ", d_obj);
 		addDatesToCalendar(d_obj);
 		userPickedDate(d_obj);
 	});
@@ -135,11 +141,14 @@ var clearDateCells = function(){
 }
 
 var getFirstDayOfMonth = function(year, month){
-	console.log('day: ', year +'-'+ month + '-01');
+	//console.log('day: ', year +'-'+ month + '-01');
 	// month+1 is needed to make sure it is looking a the current month....
 	// But I don't really know why, the off by one occurs....
-	var day = new Date(year +'-'+ (month+1) + '-01').getDay();
-	console.log('day: ', day);
+	// var day = new Date(year +'-'+ (month+1) + '-01').getDay();
+	// Please note: month in Javascript 0-11; 0:Jan, and 11:Dec.
+
+	var day = new Date(year,  month, 1).getDay();
+	//console.log('day: ', day);
 	return day;
 }
 
@@ -153,7 +162,7 @@ var getFirstDayOfMonth = function(year, month){
 	generateFirstRow();
 	generateAllDayCells();
 
-	console.log('d_obj', d_obj );
+	//console.log('d_obj', d_obj );
 
 	addDatesToCalendar( d_obj );
 	move_forward(d_obj);

@@ -44,7 +44,7 @@
 	width:110px;
 	height:100px;
 	/* margin:auto; */
-	border:1px solid gray;
+	border: 1px solid rgba(96, 125, 139, 0.32);
 	/* display:flex; */
 	display: inline-block;
 }
@@ -56,9 +56,21 @@
 #weekdayname-row * .item{
 	font-family: 'Arimo', sans-serif !important;	
 	font-weight: 700;
+	font-size: 14px;
 }
+
+
 
 .date-nav{
 	cursor: pointer;
+}
+
+.today{
+	background-color: hsla(88, 50%, 53%, 0.24);
+}
+
+.weekday-name,
+.weekday-name .item{
+	background-color: hsla(199, 98%, 48%, 0.25);
 }
 
