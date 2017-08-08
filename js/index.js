@@ -62,10 +62,8 @@ var addDatesToCalendar = function(d_obj){
 	
 	clearDateCells();
 
-	console.log('startDay: ', startDay );
 	var weekday_row = document.getElementById('weekday-row');
 	var generatedString='';
-	console.log('lastDayOfLastMonth: ', lastDayOfLastMonth);
 	
 	//Last months days
 	var j=0, i=0, l=0;
@@ -123,7 +121,6 @@ var move_forward = function(d_obj){
 	next.addEventListener('click', function(){
 		var m = d_obj.getMonth()
 		d_obj.setMonth(m+1);
-		//console.log("n-Date: ", d_obj);
 		addDatesToCalendar(d_obj);
 		userPickedDate(d_obj);
 	});
@@ -134,7 +131,6 @@ var move_backward = function(d_obj){
 	prev.addEventListener('click', function(){
 		var m = d_obj.getMonth();
 		d_obj.setMonth(m-1);
-		//console.log("p-Date: ", d_obj);
 		addDatesToCalendar(d_obj);
 		userPickedDate(d_obj);
 	});
@@ -146,12 +142,6 @@ var clearDateCells = function(){
 		item.innerHTML = '';
 		item.classList.remove("otherMonths", "today");
 	});
-
-/*	var cols = document.querySelectorAll(".col");
-	cols.forEach(function(col){
-		col.classList.remove("otherMonths");
-		console.log("*: ", col);
-	});*/
 }
 
 var getFirstDayOfMonth = function(year, month){
@@ -162,14 +152,7 @@ var getFirstDayOfMonth = function(year, month){
 	// Please note: month in Javascript 0-11; 0:Jan, and 11:Dec.
 
 	var day = new Date(year,  month, 1).getDay();
-	//console.log('day: ', day);
 	return day;
-}
-
-var removeAllClasses = function(){
-	for(i=0; i<MAX_CELL_NUM;i++){
-
-	}
 }
 
 
@@ -181,8 +164,6 @@ var removeAllClasses = function(){
 	userPickedDate(d_obj);
 	generateFirstRow();
 	generateAllDayCells();
-
-	//console.log('d_obj', d_obj );
 
 	addDatesToCalendar( d_obj );
 	move_forward(d_obj);
