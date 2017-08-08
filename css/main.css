@@ -10,9 +10,15 @@
 
 .calendar-grid-container{
     max-width: 100%;
-  /*   display: flex; */
+    display: block;
+    margin: 0px auto;
+    text-align: center; 
 }
 
+/*.inner-calendar-container{
+	border:1px solid red;
+}
+*/
 .today-date-container{
 	max-width: 100%;
  	display: flex; 
@@ -47,6 +53,7 @@
 	border: 1px solid rgba(96, 125, 139, 0.32);
 	/* display:flex; */
 	display: inline-block;
+	text-align: left;
 }
 
 .item{
@@ -76,5 +83,9 @@
 .weekday-name,
 .weekday-name .item{
 	background-color: hsla(199, 98%, 48%, 0.25);
+}
+
+.otherMonths{
+	color: hsla(88, 35%, 42%, 0.74);
 }
 

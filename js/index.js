@@ -4,6 +4,8 @@ Date.prototype.monthDays= function(){
 }
 var t = new Date();
 
+const MAX_CELL_NUM = 42;
+
 //API call for timestamp
 
 // Make this a property of the class calendar
@@ -18,12 +20,9 @@ var formatTimeStamp = function(dateObj, format){
 	switch(format){
 		case 'dmy':
 			 return (months[dateObj.getMonth()] + '-' + dateObj.getDate() + '-' +dateObj.getFullYear());
-			//break;
 		case 'MY':
 			return (months[dateObj.getMonth()] + '-' +dateObj.getFullYear());
-			//break;
 	}
-	//return (formattedDate);
 }
 
 var todaySDate = function(d_obj){
@@ -67,26 +66,31 @@ var addDatesToCalendar = function(d_obj){
 	var weekday_row = document.getElementById('weekday-row');
 	var generatedString='';
 	console.log('lastDayOfLastMonth: ', lastDayOfLastMonth);
-	// var l=0;
-	// for(j=lastDayOfLastMonth-startDay+1; j<=lastDayOfLastMonth; j++){
-	// 	document.getElementById('cell_'+l).innerHTML = j;
-	// 	if(l<startDay){
-	// 		l++;
-	// 	}			
-	// }
+	
+	//Last months days
+	var j=0, i=0, l=0;
 
+	for(j=lastDayOfLastMonth-startDay+1; j<=lastDayOfLastMonth; j++){
+		document.getElementById('cell_'+l).innerHTML = j;
+		document.getElementById('cell_'+l).classList.add('otherMonths');
+		if(l<startDay){
+			l++;
+		}			
+	}
+
+	// Current Month's day
 	for(i=startDay; i<lastDayOfMonth+startDay; i++){
 		document.getElementById('cell_'+i).innerHTML = i-startDay+1;
 		if( (i-startDay+1) == today){
 			document.getElementById('cell_'+i).classList.add("today");
-		}
-		
+		}		
 	}
 
-	// for(k=9; k<; k++){
-
-	// }
-
+	//Fill the remaining days with next month...	
+	for(k=i, l=1; k<MAX_CELL_NUM; k++,l++){
+		document.getElementById('cell_'+k).innerHTML = l;
+		document.getElementById('cell_'+k).classList.add('otherMonths');
+	}
 
 }
 
@@ -104,7 +108,7 @@ function generateAllDayCells(){
 	var weekday_row = document.getElementById('weekday-row');
 	var generatedString='<div>';
 
-	for(i=1; i<42+1; i++){
+	for(i=1; i<MAX_CELL_NUM+1; i++){
 		generatedString +='<div class="col this-month" ><div class="item cell" id="cell_'+(i-1)+'"></div></div>';
 	
 		if(i%7 == 0){
@@ -140,7 +144,14 @@ var clearDateCells = function(){
 	var cells = document.querySelectorAll(".cell");
 	cells.forEach(function(item){
 		item.innerHTML = '';
+		item.classList.remove("otherMonths", "today");
 	});
+
+/*	var cols = document.querySelectorAll(".col");
+	cols.forEach(function(col){
+		col.classList.remove("otherMonths");
+		console.log("*: ", col);
+	});*/
 }
 
 var getFirstDayOfMonth = function(year, month){
@@ -153,6 +164,12 @@ var getFirstDayOfMonth = function(year, month){
 	var day = new Date(year,  month, 1).getDay();
 	//console.log('day: ', day);
 	return day;
+}
+
+var removeAllClasses = function(){
+	for(i=0; i<MAX_CELL_NUM;i++){
+
+	}
 }
 
 
