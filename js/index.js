@@ -1,7 +1,3 @@
-Date.prototype.monthDays= function(){
-    var d= new Date(this.getFullYear(), this.getMonth()+1, 0);
-    return d.getDate();
-}
 var t = new Date();
 
 const MAX_CELL_NUM = 42;
