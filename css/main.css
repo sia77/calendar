@@ -66,6 +66,10 @@
 }
 
 .today{
+	background-color: hsla(88, 50%, 53%, 0.40);
+}
+
+.this-month{
 	background-color: hsla(88, 50%, 53%, 0.24);
 }
 

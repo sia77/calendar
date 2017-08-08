@@ -55,6 +55,7 @@ var addDatesToCalendar = function(d_obj){
 
 	var year = d_obj.getFullYear(), 
 		month = d_obj.getMonth(),
+		today = d_obj.getDate(),
 		startDay = getFirstDayOfMonth(year, month);
 
 	var lastDayOfMonth = numberOfDaysInMonth(year, month);
@@ -76,8 +77,10 @@ var addDatesToCalendar = function(d_obj){
 
 	for(i=startDay; i<lastDayOfMonth+startDay; i++){
 		document.getElementById('cell_'+i).innerHTML = i-startDay+1;
-
-		document.getElementById('cell_'+i).classList.add("today");
+		if( (i-startDay+1) == today){
+			document.getElementById('cell_'+i).classList.add("today");
+		}
+		
 	}
 
 	// for(k=9; k<; k++){
@@ -87,7 +90,7 @@ var addDatesToCalendar = function(d_obj){
 
 }
 
-var litUpToday = function(){
+var getToday = function(){
 
 }
 
@@ -102,7 +105,7 @@ function generateAllDayCells(){
 	var generatedString='<div>';
 
 	for(i=1; i<42+1; i++){
-		generatedString +='<div class="col" ><div class="item cell" id="cell_'+(i-1)+'"></div></div>';
+		generatedString +='<div class="col this-month" ><div class="item cell" id="cell_'+(i-1)+'"></div></div>';
 	
 		if(i%7 == 0){
 			generatedString += '</div><div>';
