@@ -44,7 +44,7 @@ function jsCalendar(){
 	}
 
 	this.addDatesToCalendar = function(d_obj){
-		console.log("obj: ", d_obj);
+		// console.log("obj: ", d_obj);
 		var year = d_obj.getFullYear(), 
 			month = d_obj.getMonth(),
 			today = d_obj.getDate(),
@@ -149,12 +149,27 @@ function jsCalendar(){
 		xmlhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 		    	var myObj = JSON.parse(this.response);
-		        timeStamp = myObj.time; 
-		        document.getElementById("demo").innerHTML = timeStamp;
+		        timeStamp = myObj.time;
+		        console.log("timeStamp: ", timeStamp); 
+		        // document.getElementById("demo").innerHTML = timeStamp;
 		    }
 		};
-		xmlhttp.open("GET", "http://localhost:8080/", false);
-		xmlhttp.send();
+
+		xmlhttp.open("GET", "http://localhost:8080/", false); 	//The get request is synchronous, so timeStamp can be returned.
+
+		try {
+	    	xmlhttp.send();
+		}
+		catch(err) {
+			console.log("Err2: ", err.code);
+			if(err.code == 19){
+				//If client time is being used, then maybe time zone also needs to be included to make sure necessary adjustment can be made, when client and server synch
+				return Date.now();
+
+			}
+			//console.dir( err);
+		    //document.getElementById("demo").innerHTML = err.message;
+		}		
 
 		return timeStamp;
 	}
@@ -164,6 +179,8 @@ function jsCalendar(){
 ;
 (function(){
 	var calendar_obj = new jsCalendar();
+
+	//Creating a new Date object using a timestamp
 	var d_obj = new Date(calendar_obj.getTimeStamp());
 	
 	calendar_obj.todaySDate(d_obj);

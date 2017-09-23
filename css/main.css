@@ -1,6 +1,11 @@
 * {
 	font-family: 'Montserrat', sans-serif;
 }
+
+body{
+	margin:8px;
+}
+
 #top-spacer{
 	height: 20px;
 }
@@ -9,7 +14,7 @@
 }
 
 .calendar-grid-container{
-    max-width: 100%;
+    width: 970px;
     display: block;
     margin: 0px auto;
     text-align: center; 
@@ -87,5 +92,84 @@
 
 .otherMonths{
 	color: hsla(88, 35%, 42%, 0.74);
+}
+
+/* Navigation */
+
+.nav-container{
+	display: none;
+}
+
+ul#primary-navigation{
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid rgba(96, 125, 139, 0.32);
+    overflow: hidden;
+    border-radius: 3px;
+    width: 799px;
+    margin: 0px auto;
+}
+.controls-container{
+	width:799px;
+	margin:0px auto;
+}
+
+ul#primary-navigation li{
+	float:left;
+}
+ul#primary-navigation li:last-child{
+	float:right;
+}
+
+#create_account{
+
+    float: right;
+    background-color: #e3f1d4;
+    border: none;
+    border-radius: 2px;
+    padding: 5px;
+    /* font-family: 'Montserrat', sans-serif; */
+    cursor: pointer;
+}
+
+ul#primary-navigation li a{
+	text-decoration:none;
+	display: block;
+	color: hsl(88, 36%, 34%);
+}
+
+
+/* popup_box */
+
+.bk_drop{
+	display: none;
+	position: fixed;
+    width: 100%;
+    z-index: 9999999999;
+    height: 100%;
+    /* border: 1px solid red; */
+    margin: 0px;
+    padding: 0px;
+    background-color: rgba(255, 255, 255, 0.77);
+    align-items: center;
+  justify-content: center;
+}
+
+.popup_box{
+	width:400px;
+	height:400px;
+	border:1px solid red;
+	position:relative;
+	z-index: 999;
+	background-color: #fff;
+}
+
+.form_container{
+	width: 300px;
+    height: 400px;
+    border: 1px solid #7d7d7d;
+    border-radius: 3px;
+    background-color: #fff;
 }
 
